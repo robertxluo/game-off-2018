@@ -14,3 +14,7 @@ node_modules/
 /npm-debug.log
 build/
 out/
+
+
+# Other
+phaser3-tutorial-src
