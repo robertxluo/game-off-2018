@@ -4,8 +4,8 @@ let gameScene = new Phaser.Scene('Game');
 // Our game's configuration
 let config = {
   type: Phaser.AUTO,
-  width: 640,
-  height: 360,
+  width: 800,
+  height: 600,
   scene: gameScene
 }
 
@@ -20,7 +20,7 @@ gameScene.init = function () {
 
 // Load asset files for our game
 gameScene.preload = function () {
-  this.load.image('background', '../assets/background.png');
+  // this.load.image('background', '../assets/background.png');
   this.load.image('player', '../assets/player.png');
   this.load.image('dragon', '../assets/dragon.png');
   this.load.image('treasure', '../assets/treasure.png');
@@ -30,13 +30,13 @@ gameScene.preload = function () {
 gameScene.create = function () {
 
   // Background
-  let bg = this.add.sprite(0, 0, 'background');
+  // let bg = this.add.sprite(0, 0, 'background');
 
   // Change origin to top-left of the sprite
-  bg.setOrigin(0, 0);
+  // bg.setOrigin(0, 0);
 
   // Player
-  this.player = this.add.sprite(40, this.sys.game.config.height / 2, 'player');
+  this.player = this.add.sprite(this.sys.game.config.width / 2, this.sys.game.config.height / 2, 'player');
 
   // Scale down player
   this.player.setScale(0.5);
@@ -108,10 +108,11 @@ gameScene.update = function () {
       enemies[i].speed *= -1;
     }
 
-    if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemies[i].getBounds())) {
-      this.gameOver();
-      break;
-    }
+    // Enemy Collision
+    // if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemies[i].getBounds())) {
+    //   this.gameOver();
+    //   break;
+    // }
   }
 }
 
