@@ -75,8 +75,19 @@ gameScene.update = function () {
   }
 
   // Player movement
-  if (this.input.activePointer.isDown) {
+  cursors = this.input.keyboard.createCursorKeys();
+
+  if (cursors.right.isDown) {
     this.player.x += this.playerSpeed;
+  }
+  else if (cursors.left.isDown) {
+    this.player.x -= this.playerSpeed;
+  }
+  else if (cursors.down.isDown) {
+    this.player.y += this.playerSpeed;
+  }
+  else if (cursors.up.isDown) {
+    this.player.y -= this.playerSpeed;
   }
 
   // Treasure collision
